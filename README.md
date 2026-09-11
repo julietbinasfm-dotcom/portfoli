@@ -420,7 +420,76 @@
             margin-top: 2px;
         }
 
-        /* Slide 5: Tech Stack Tag Cloud */
+        /* Slide 5: Sample Works Grid */
+        .sample-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+            height: 100%;
+            align-items: stretch;
+        }
+
+        .sample-card {
+            background-color: var(--card-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .sample-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .sample-badge {
+            align-self: flex-start;
+            background: var(--accent-glow);
+            color: var(--accent-color);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .sample-card h3 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .sample-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.76rem;
+            line-height: 1.6;
+        }
+
+        .sample-card ul li::before {
+            content: "• ";
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .sample-footer {
+            margin-top: 12px;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 8px;
+        }
+
+        /* Slide 6: Tech Stack Tag Cloud */
         .stack-container {
             display: flex;
             flex-wrap: wrap;
@@ -456,7 +525,7 @@
             background-color: var(--accent-color);
         }
 
-        /* Slide 6: Process & Contact CTA */
+        /* Slide 7: Process & Contact CTA */
         .process-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -511,7 +580,7 @@
                 height: auto;
                 padding: 24px;
             }
-            .cover-content, .split-layout, .services-grid, .case-study-layout, .process-row {
+            .cover-content, .split-layout, .services-grid, .case-study-layout, .sample-grid, .process-row {
                 grid-template-columns: 1fr;
             }
             .contact-bar {
@@ -528,7 +597,7 @@
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
-            <span class="slide-number">01 / 06</span>
+            <span class="slide-number">01 / 07</span>
         </div>
         <div class="cover-content">
             <div>
@@ -576,7 +645,7 @@
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
-            <span class="slide-number">02 / 06</span>
+            <span class="slide-number">02 / 07</span>
         </div>
         <div class="split-layout">
             <div class="portrait-frame">
@@ -610,7 +679,7 @@
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
-            <span class="slide-number">03 / 06</span>
+            <span class="slide-number">03 / 07</span>
         </div>
         <div class="services-grid">
             <div class="service-card">
@@ -656,7 +725,7 @@
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
-            <span class="slide-number">04 / 06</span>
+            <span class="slide-number">04 / 07</span>
         </div>
         <div class="case-study-layout">
             <div class="case-visual">
@@ -695,11 +764,70 @@
         </div>
     </div>
 
-    <!-- SLIDE 5: TECH STACK TAG CLOUD -->
+    <!-- SLIDE 5: SAMPLE WORKS (NEW) -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
-            <span class="slide-number">05 / 06</span>
+            <span class="slide-number">05 / 07</span>
+        </div>
+        <div style="display: flex; flex-direction: column; height: 100%;">
+            <h2 class="section-title">FEATURED WORK & CREATIVE SAMPLES</h2>
+            <p class="subtitle">A showcase of AI-enhanced visuals, handcrafted brand graphics, and engaging short-form video content.</p>
+            
+            <div class="sample-grid">
+                <!-- Card 1: AI Imagery -->
+                <div class="sample-card">
+                    <div>
+                        <span class="sample-badge">AI-Generated Imagery</span>
+                        <h3>Studio & Editorial Photos</h3>
+                        <ul>
+                            <li>High-key studio beauty portraits</li>
+                            <li>Ghost mannequin product shots</li>
+                            <li>Luxury swimwear & footwear assets</li>
+                            <li>3-Step visual product user guides</li>
+                        </ul>
+                    </div>
+                    <div class="sample-footer">Tools: Midjourney / AI Image Generators</div>
+                </div>
+
+                <!-- Card 2: Manual Graphics -->
+                <div class="sample-card">
+                    <div>
+                        <span class="sample-badge">Manually Crafted</span>
+                        <h3>Brand & Apparel Graphics</h3>
+                        <ul>
+                            <li>Minimalist typography & logotypes</li>
+                            <li>Custom sans-serif apparel branding</li>
+                            <li>Cohesive social media carousel layouts</li>
+                            <li>Vector apparel & graphic overlays</li>
+                        </ul>
+                    </div>
+                    <div class="sample-footer">Tools: Photoshop / Illustrator / Canva Pro</div>
+                </div>
+
+                <!-- Card 3: Video & Reels -->
+                <div class="sample-card">
+                    <div>
+                        <span class="sample-badge">Motion & Reels</span>
+                        <h3>Short-Form Video Direction</h3>
+                        <ul>
+                            <li>Dynamic transitions & rhythmic cuts</li>
+                            <li>Aesthetic product feature highlights</li>
+                            <li>On-trend audio & text overlay sync</li>
+                            <li>High-converting social video ads</li>
+                        </ul>
+                    </div>
+                    <div class="sample-footer">Tools: CapCut Pro / Premiere / Meta Suite</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: TECH STACK TAG CLOUD -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
+            <span class="slide-number">06 / 07</span>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
             <h2 class="section-title">TOOLKIT & CREATIVE SKILLS</h2>
@@ -718,11 +846,11 @@
         </div>
     </div>
 
-    <!-- SLIDE 6: PROCESS & CONTACT CTA -->
+    <!-- SLIDE 7: PROCESS & CONTACT CTA -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
-            <span class="slide-number">06 / 06</span>
+            <span class="slide-number">07 / 07</span>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
             <div>
