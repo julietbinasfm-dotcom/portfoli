@@ -3,73 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juliet Binas | Visual Portfolio Presentation</title>
+    <title>Juliet Binas | Artistic Visual Portfolio</title>
     <style>
-        /* CSS Reset & Dark Feminine Base Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         :root {
-            --bg-color: #0f0d13;
-            --card-bg: #18131d;
-            --card-surface: #231b2b;
-            --border-color: #3b2c45;
-            --border-hover: #5a3d69;
-            --accent-color: #ec4899;
-            --accent-gradient: linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #d946ef 100%);
-            --accent-glow: rgba(236, 72, 153, 0.2);
-            --accent-gold: #f59e0b;
-            --text-primary: #fdf2f8;
-            --text-secondary: #d1c1d7;
-            --text-muted: #8c7895;
+            --bg-color: #0b070e;
+            --card-bg: rgba(23, 16, 28, 0.75);
+            --card-surface: rgba(35, 24, 44, 0.5);
+            --glass-border: rgba(244, 114, 182, 0.15);
+            --glass-border-hover: rgba(244, 114, 182, 0.4);
+            --accent-pink: #f472b6;
+            --accent-rose: #e11d48;
+            --accent-gold: #fbbf24;
+            --accent-purple: #c084fc;
+            --accent-gradient: linear-gradient(135deg, #f472b6 0%, #e11d48 50%, #c084fc 100%);
+            --text-primary: #fff0f6;
+            --text-secondary: #d8c4dd;
+            --text-muted: #8e7898;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            padding: 40px 20px;
+            font-family: var(--font-sans);
+            padding: 60px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(192, 132, 252, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(244, 114, 182, 0.08) 0%, transparent 40%);
         }
 
-        /* Slide Container Setup */
+        /* Slide Container */
         .slide {
             width: 100%;
             max-width: 960px;
             aspect-ratio: 16 / 9;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 40px 48px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 44px 52px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.1);
             overflow: hidden;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .slide:hover {
-            border-color: var(--border-hover);
-            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.15);
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 35px 70px rgba(244, 114, 182, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.2);
         }
 
-        /* Ambient Rose Gold Soft Lighting */
+        /* Ambient Lighting Accents */
         .slide::before {
             content: '';
             position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(15, 13, 19, 0) 70%);
+            top: -120px;
+            right: -120px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.18) 0%, rgba(11, 7, 14, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .slide::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(192, 132, 252, 0.12) 0%, rgba(11, 7, 14, 0) 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -79,513 +100,525 @@
             z-index: 1;
         }
 
-        /* Header / Meta Elements */
+        /* Header Elements */
         .slide-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(244, 114, 182, 0.12);
+            padding-bottom: 18px;
         }
 
         .brand-name {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .brand-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background: var(--accent-gradient);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-color);
+            box-shadow: 0 0 12px var(--accent-pink);
         }
 
         .slide-number {
-            font-size: 0.85rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
             color: var(--text-muted);
-            font-weight: 600;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
-        /* Typography Essentials */
+        /* Typography */
         .hero-title {
-            font-size: 2.3rem;
-            font-weight: 800;
-            line-height: 1.15;
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 400;
+            line-height: 1.05;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ffffff 0%, #fbcfe8 50%, #f472b6 100%);
+            background: linear-gradient(135deg, #ffffff 20%, #fbcfe8 60%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title i {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 300;
+            background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             color: var(--text-primary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .subtitle {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.6;
+            font-weight: 300;
+            letter-spacing: 0.2px;
         }
 
-        /* Buttons & Callout Graphics */
+        /* Artistic Pill Buttons */
         .btn-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: var(--accent-gradient);
             color: #ffffff;
-            padding: 10px 24px;
-            font-size: 0.85rem;
+            padding: 12px 28px;
+            font-size: 0.75rem;
             font-weight: 700;
-            border-radius: 20px;
+            border-radius: 40px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-decoration: none;
             width: fit-content;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 25px rgba(225, 29, 72, 0.35);
         }
 
         .btn-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(244, 114, 182, 0.5);
         }
 
         /* Slide 1: Cover Layout */
         .cover-content {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 24px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
             align-items: center;
             height: 100%;
         }
 
-        .device-mockup {
+        .artistic-frame {
+            position: relative;
             width: 100%;
-            height: 240px;
-            background-color: var(--card-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 16px;
+            height: 250px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(35, 24, 44, 0.8), rgba(15, 10, 20, 0.9));
+            border: 1px solid var(--glass-border);
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
-            position: relative;
-        }
-
-        .mockup-header {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
         }
 
-        .status-dots {
-            display: flex;
-            gap: 4px;
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--border-color);
-        }
-
-        .mockup-grid {
+        .frame-canvas {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 10px;
             height: 100%;
+            margin-top: 10px;
         }
 
-        .mockup-item {
-            background-color: #120e17;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            position: relative;
+        .canvas-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            gap: 8px;
+            transition: all 0.3s ease;
         }
 
-        .mockup-item:hover {
-            transform: scale(1.03);
-            border-color: var(--accent-color);
-            background-color: #2a1f33;
+        .canvas-card:hover {
+            background: rgba(244, 114, 182, 0.1);
+            border-color: var(--accent-pink);
+            transform: translateY(-2px);
         }
 
-        .mockup-item svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--text-secondary);
-            fill: none;
+        .canvas-card svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--accent-pink);
             stroke-width: 1.5;
+            fill: none;
         }
 
-        /* Slide 2: Split Columns */
+        .canvas-card span {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Slide 2: About / Split */
         .split-layout {
             display: grid;
             grid-template-columns: 0.8fr 1.2fr;
-            gap: 32px;
+            gap: 36px;
             align-items: center;
             height: 100%;
         }
 
-        .portrait-frame {
+        .portrait-container {
             width: 100%;
-            height: 240px;
-            background: linear-gradient(135deg, #2a1f33 0%, #120e17 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1) 0%, rgba(192, 132, 252, 0.05) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            color: var(--text-muted);
+            gap: 14px;
             position: relative;
-            overflow: hidden;
         }
 
-        .portrait-avatar {
-            width: 80px;
-            height: 80px;
+        .portrait-circle {
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            background-color: #18131d;
+            background: rgba(23, 16, 28, 0.9);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+            border: 2px solid var(--accent-pink);
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.4);
         }
 
-        .stats-grid {
+        .stats-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-top: 24px;
         }
 
-        .stat-card {
-            background-color: var(--card-surface);
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
+        .stat-box {
+            background: var(--card-surface);
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid var(--glass-border);
             text-align: center;
         }
 
-        .stat-card h4 {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            font-weight: 700;
+        .stat-box h4 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--accent-pink);
+            font-weight: 600;
         }
 
-        .stat-card p {
-            font-size: 0.72rem;
+        .stat-box p {
+            font-size: 0.7rem;
             color: var(--text-secondary);
             margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Slide 3: Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 18px;
             height: 100%;
             align-items: center;
         }
 
         .service-card {
-            background-color: var(--card-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 20px;
+            background: var(--card-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 24px 20px;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .service-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-pink);
+            transform: translateY(-5px);
+            background: rgba(35, 24, 44, 0.8);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
         .service-icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 12px;
-            stroke: var(--accent-color);
-            stroke-width: 1.8;
+            width: 34px;
+            height: 34px;
+            margin-bottom: 14px;
+            stroke: var(--accent-pink);
+            stroke-width: 1.5;
             fill: none;
         }
 
         .service-card h3 {
-            font-size: 0.95rem;
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
             color: var(--text-primary);
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         .service-card ul {
             list-style: none;
             color: var(--text-secondary);
-            font-size: 0.78rem;
-            line-height: 1.7;
+            font-size: 0.76rem;
+            line-height: 1.8;
+            font-weight: 300;
         }
 
         .service-card ul li::before {
             content: "✦ ";
-            color: var(--accent-color);
-            font-size: 0.7rem;
+            color: var(--accent-pink);
+            font-size: 0.65rem;
         }
 
-        .service-impact {
-            margin-top: 12px;
+        .service-tag {
+            margin-top: 14px;
             padding-top: 12px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.75rem;
-            color: var(--accent-color);
-            font-weight: 600;
+            border-top: 1px solid rgba(244, 114, 182, 0.12);
+            font-size: 0.72rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
-        /* Slide 4: Case Study Split */
-        .case-study-layout {
+        /* Slide 4: Case Study */
+        .case-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 28px;
             height: 100%;
             align-items: center;
         }
 
-        .case-visual {
-            background-color: var(--card-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
+        .case-visual-box {
+            background: var(--card-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
             height: 240px;
-            padding: 20px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .chart-graphic {
+        .chart-art {
             width: 100%;
-            height: 140px;
+            height: 130px;
         }
 
-        .case-details {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .detail-card {
+            background: var(--card-surface);
+            border-left: 2px solid var(--accent-pink);
+            padding: 12px 16px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 10px;
         }
 
-        .detail-box {
-            background-color: var(--card-surface);
-            border-left: 3px solid var(--accent-color);
-            padding: 10px 14px;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .detail-box h5 {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
+        .detail-card h5 {
+            font-size: 0.68rem;
+            color: var(--accent-pink);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
-        .detail-box p {
+        .detail-card p {
             font-size: 0.82rem;
             color: var(--text-primary);
-            margin-top: 2px;
+            margin-top: 3px;
+            font-weight: 300;
         }
 
-        /* Slide 5: Sample Works Grid */
+        /* SLIDE 5: SAMPLE WORKS (ARTISTIC) */
         .sample-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 18px;
             margin-top: 16px;
             height: 100%;
             align-items: stretch;
         }
 
         .sample-card {
-            background-color: var(--card-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 18px;
+            background: var(--card-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .sample-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-pink);
+            transform: translateY(-4px);
+            background: rgba(35, 24, 44, 0.85);
+            box-shadow: 0 15px 35px rgba(244, 114, 182, 0.15);
         }
 
         .sample-badge {
             align-self: flex-start;
-            background: var(--accent-glow);
-            color: var(--accent-color);
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(192, 132, 252, 0.15));
+            color: var(--accent-pink);
             font-size: 0.65rem;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 4px 10px;
-            border-radius: 12px;
-            border: 1px solid var(--accent-color);
+            letter-spacing: 1.5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
             margin-bottom: 12px;
         }
 
         .sample-card h3 {
-            font-size: 1rem;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
             color: var(--text-primary);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .sample-card ul {
             list-style: none;
             color: var(--text-secondary);
             font-size: 0.76rem;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
         .sample-card ul li::before {
-            content: "• ";
-            color: var(--accent-color);
-            font-weight: bold;
+            content: "✦ ";
+            color: var(--accent-pink);
+            font-size: 0.65rem;
         }
 
-        .sample-footer {
-            margin-top: 12px;
-            font-size: 0.72rem;
+        .sample-tools {
+            margin-top: 14px;
+            font-size: 0.7rem;
             color: var(--text-muted);
-            border-top: 1px dashed var(--border-color);
-            padding-top: 8px;
+            border-top: 1px dashed rgba(244, 114, 182, 0.15);
+            padding-top: 10px;
+            letter-spacing: 0.5px;
         }
 
-        /* Slide 6: Tech Stack Tag Cloud */
-        .stack-container {
+        /* Slide 6: Toolkit Cloud */
+        .tag-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 24px;
         }
 
-        .tag-pill {
-            background-color: var(--card-surface);
-            border: 1px solid var(--border-color);
-            padding: 10px 18px;
+        .tag-item {
+            background: var(--card-surface);
+            border: 1px solid var(--glass-border);
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-primary);
-            font-weight: 500;
+            font-weight: 400;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .tag-pill:hover {
-            border-color: var(--accent-color);
+        .tag-item:hover {
+            border-color: var(--accent-pink);
             color: #ffffff;
-            background-color: #32233d;
+            background: rgba(244, 114, 182, 0.15);
             transform: translateY(-2px);
         }
 
         .tag-dot {
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
-            background-color: var(--accent-color);
+            background: var(--accent-pink);
+            box-shadow: 0 0 8px var(--accent-pink);
         }
 
-        /* Slide 7: Process & Contact CTA */
-        .process-row {
+        /* Slide 7: Process & CTA */
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 16px;
-            margin: 16px 0;
+            margin: 20px 0;
         }
 
-        .process-step {
-            background-color: var(--card-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
+        .process-card {
+            background: var(--card-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 18px;
             position: relative;
         }
 
-        .step-num {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            margin-bottom: 4px;
+        .step-number {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--accent-pink);
+            font-style: italic;
+            margin-bottom: 2px;
         }
 
         .step-title {
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-primary);
+            letter-spacing: 0.5px;
         }
 
         .step-desc {
-            font-size: 0.73rem;
+            font-size: 0.72rem;
             color: var(--text-secondary);
-            margin-top: 4px;
-            line-height: 1.4;
+            margin-top: 6px;
+            line-height: 1.5;
+            font-weight: 300;
         }
 
-        .contact-bar {
+        .cta-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--card-surface);
-            padding: 14px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            font-size: 0.82rem;
+            background: var(--card-surface);
+            padding: 16px 24px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            font-size: 0.85rem;
             color: var(--text-secondary);
         }
 
-        /* Responsive Scaling for Smaller Viewports */
+        /* Responsive Breakpoints */
         @media (max-width: 800px) {
             .slide {
                 aspect-ratio: auto;
                 height: auto;
-                padding: 24px;
+                padding: 30px;
             }
-            .cover-content, .split-layout, .services-grid, .case-study-layout, .sample-grid, .process-row {
+            .cover-content, .split-layout, .services-grid, .case-layout, .sample-grid, .process-grid {
                 grid-template-columns: 1fr;
             }
-            .contact-bar {
+            .cta-bar {
                 flex-direction: column;
-                gap: 12px;
+                gap: 14px;
                 text-align: center;
             }
         }
@@ -593,7 +626,7 @@
 </head>
 <body>
 
-    <!-- SLIDE 1: COVER -->
+    <!-- SLIDE 1: ARTISTIC COVER -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
@@ -601,81 +634,71 @@
         </div>
         <div class="cover-content">
             <div>
-                <h1 class="hero-title">ELEVATING BRANDS THROUGH CURATED VISUAL STORYTELLING.</h1>
-                <p class="subtitle" style="margin-top: 12px; margin-bottom: 24px;">Social Media Direction & Visual Strategy</p>
+                <h1 class="hero-title">CRAFTING <i>VISUAL</i> ELEGANCE & STRATEGY.</h1>
+                <p class="subtitle" style="margin-top: 14px; margin-bottom: 28px;">Editorial Brand Direction & Content Curation</p>
                 <a href="mailto:juliet.binas.pandroutsourcing@gmail.com" class="btn-pill">
-                    Book Discovery Call
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    Initiate Collaboration
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
             </div>
-            <div class="device-mockup">
-                <div class="mockup-header">
-                    <span>Curated Feed</span>
-                    <div class="status-dots">
-                        <div class="status-dot"></div>
-                        <div class="status-dot"></div>
-                        <div class="status-dot"></div>
-                    </div>
+            <div class="artistic-frame">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.65rem; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase;">Creative Portfolio</span>
+                    <span style="font-size: 0.65rem; color: var(--accent-pink);">✦ 2026 EDITION</span>
                 </div>
-                <div class="mockup-grid">
-                    <div class="mockup-item">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <div class="frame-canvas">
+                    <div class="canvas-card">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span>AI Visuals</span>
                     </div>
-                    <div class="mockup-item">
+                    <div class="canvas-card">
+                        <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+                        <span>Graphics</span>
+                    </div>
+                    <div class="canvas-card">
                         <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                    </div>
-                    <div class="mockup-item">
-                        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    </div>
-                    <div class="mockup-item">
-                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                    <div class="mockup-item">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    </div>
-                    <div class="mockup-item">
-                        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        <span>Reels</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 2: ABOUT / PHILOSOPHY -->
+    <!-- SLIDE 2: PHILOSOPHY -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
             <span class="slide-number">02 / 07</span>
         </div>
         <div class="split-layout">
-            <div class="portrait-frame">
-                <div class="portrait-avatar">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="portrait-container">
+                <div class="portrait-circle">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </div>
-                <span style="font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary);">Visual Strategist</span>
+                <span style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary);">Visual Director</span>
             </div>
             <div>
-                <h2 class="section-title">THE APPROACH</h2>
-                <p class="subtitle">I blend aesthetic design, elevated content curation, and intentional brand strategy to craft memorable visual identities that cultivate deeply engaged audiences.</p>
-                <div class="stats-grid">
-                    <div class="stat-card">
+                <h2 class="section-title">THE CREATIVE PHILOSOPHY</h2>
+                <p class="subtitle">Where precision strategy meets high-end editorial aesthetics. I transform digital presence into curated visual experiences that capture attention and build brand prestige.</p>
+                <div class="stats-row">
+                    <div class="stat-box">
                         <h4>100%</h4>
-                        <p>Bespoke Creative</p>
+                        <p>Bespoke</p>
                     </div>
-                    <div class="stat-card">
-                        <h4>Elevated</h4>
-                        <p>Aesthetic Focus</p>
+                    <div class="stat-box">
+                        <h4>High</h4>
+                        <p>Aesthetic</p>
                     </div>
-                    <div class="stat-card">
-                        <h4>Strategic</h4>
-                        <p>Brand Growth</p>
+                    <div class="stat-box">
+                        <h4>Focused</h4>
+                        <p>Impact</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 3: SERVICES GRID -->
+    <!-- SLIDE 3: SERVICES -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
@@ -684,102 +707,102 @@
         <div class="services-grid">
             <div class="service-card">
                 <div>
-                    <svg class="service-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    <h3>Visual Identity</h3>
+                    <svg class="service-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    <h3>Visual Curation</h3>
                     <ul>
-                        <li>Feed aesthetic curation</li>
-                        <li>Bespoke graphic templates</li>
-                        <li>Color & typography direction</li>
+                        <li>Editorial feed aesthetics</li>
+                        <li>Bespoke graphic layouts</li>
+                        <li>Typography & color palettes</li>
                     </ul>
                 </div>
-                <div class="service-impact">Refines Brand Presence</div>
+                <div class="service-tag">✦ Refined Brand Presence</div>
             </div>
             <div class="service-card">
                 <div>
-                    <svg class="service-icon" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-                    <h3>Content Curation</h3>
+                    <svg class="service-icon" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    <h3>Motion & Video</h3>
                     <ul>
-                        <li>Reels & video direction</li>
-                        <li>Editorial content planning</li>
-                        <li>Engaging story copy</li>
+                        <li>Short-form reel direction</li>
+                        <li>Rhythmic video editing</li>
+                        <li>High-converting motion ads</li>
                     </ul>
                 </div>
-                <div class="service-impact">Inspires Engagement</div>
+                <div class="service-tag">✦ Drives Audience Reach</div>
             </div>
             <div class="service-card">
                 <div>
-                    <svg class="service-icon" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-                    <h3>Growth & Reach</h3>
+                    <svg class="service-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <h3>AI Visual Strategy</h3>
                     <ul>
-                        <li>Profile optimization</li>
-                        <li>Analytics & performance</li>
-                        <li>Community nurture</li>
+                        <li>Generative product imagery</li>
+                        <li>Studio avatar photography</li>
+                        <li>Synthetic shoot direction</li>
                     </ul>
                 </div>
-                <div class="service-impact">Sustains Long-Term Value</div>
+                <div class="service-tag">✦ Unlocks Creative Limits</div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 4: CASE STUDY SPLIT -->
+    <!-- SLIDE 4: CASE STUDY -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
             <span class="slide-number">04 / 07</span>
         </div>
-        <div class="case-study-layout">
-            <div class="case-visual">
-                <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Engagement & Reach Growth</span>
-                <svg class="chart-graphic" viewBox="0 0 300 120" preserveAspectRatio="none">
+        <div class="case-layout">
+            <div class="case-visual-box">
+                <span style="font-size: 0.7rem; color: var(--text-secondary); letter-spacing: 1.5px; text-transform: uppercase;">Reach & Engagement Scaling</span>
+                <svg class="chart-art" viewBox="0 0 300 120" preserveAspectRatio="none">
                     <defs>
-                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.4"/>
-                            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.0"/>
+                        <linearGradient id="artGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f472b6" stop-opacity="0.4"/>
+                            <stop offset="100%" stop-color="#f472b6" stop-opacity="0.0"/>
                         </linearGradient>
                     </defs>
-                    <path d="M0,100 Q60,80 120,60 T240,20 T300,10 L300,120 L0,120 Z" fill="url(#chartGrad)"/>
-                    <path d="M0,100 Q60,80 120,60 T240,20 T300,10" fill="none" stroke="#ec4899" stroke-width="3"/>
+                    <path d="M0,100 C60,90 100,50 180,40 C240,30 260,10 300,5 L300,120 L0,120 Z" fill="url(#artGrad)"/>
+                    <path d="M0,100 C60,90 100,50 180,40 C240,30 260,10 300,5" fill="none" stroke="#f472b6" stroke-width="2.5"/>
                 </svg>
-                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted);">
-                    <span>Phase 1: Brand Audit</span>
-                    <span>Phase 2: Visual Refresh</span>
-                    <span>Phase 3: Scale & Reach</span>
+                <div style="display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">
+                    <span>Audit & Concept</span>
+                    <span>Visual Refresh</span>
+                    <span>Scalable Reach</span>
                 </div>
             </div>
-            <div class="case-details">
-                <h2 class="section-title">CAMPAIGN HIGHLIGHTS</h2>
-                <div class="detail-box">
+            <div>
+                <h2 class="section-title">CASE HIGHLIGHTS</h2>
+                <div class="detail-card">
                     <h5>The Challenge</h5>
-                    <p>Inconsistent grid aesthetic and low engagement across primary visual platforms.</p>
+                    <p>Inconsistent aesthetic output and low visual engagement across platforms.</p>
                 </div>
-                <div class="detail-box">
-                    <h5>The Strategy</h5>
-                    <p>Cohesive aesthetic makeover, editorial short-form video, and tailored visual narrative.</p>
+                <div class="detail-card">
+                    <h5>The Creative Solution</h5>
+                    <p>Cohesive luxury makeover combining synthetic AI assets with motion reels.</p>
                 </div>
-                <div class="detail-box">
-                    <h5>The Outcome</h5>
-                    <p>Elevated brand perception, stronger community trust, and increased client inquiries.</p>
+                <div class="detail-card">
+                    <h5>The Result</h5>
+                    <p>Elevated brand prestige, high organic retention, and increased conversions.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 5: SAMPLE WORKS (NEW) -->
+    <!-- SLIDE 5: SAMPLE WORKS (NEW & ARTISTIC) -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
             <span class="slide-number">05 / 07</span>
         </div>
         <div style="display: flex; flex-direction: column; height: 100%;">
-            <h2 class="section-title">FEATURED WORK & CREATIVE SAMPLES</h2>
-            <p class="subtitle">A showcase of AI-enhanced visuals, handcrafted brand graphics, and engaging short-form video content.</p>
+            <h2 class="section-title">CURATED SAMPLE WORKS</h2>
+            <p class="subtitle">A blend of synthetic AI imagery, handcrafted vector typography, and short-form video motion.</p>
             
             <div class="sample-grid">
                 <!-- Card 1: AI Imagery -->
                 <div class="sample-card">
                     <div>
-                        <span class="sample-badge">AI-Generated Imagery</span>
-                        <h3>Studio & Editorial Photos</h3>
+                        <span class="sample-badge">AI Visual Assets</span>
+                        <h3>Studio & Editorial Imagery</h3>
                         <ul>
                             <li>High-key studio beauty portraits</li>
                             <li>Ghost mannequin product shots</li>
@@ -787,66 +810,65 @@
                             <li>3-Step visual product user guides</li>
                         </ul>
                     </div>
-                    <div class="sample-footer">Tools: Midjourney / AI Image Generators</div>
+                    <div class="sample-tools">Tools: Midjourney / AI Imagery Generators</div>
                 </div>
 
                 <!-- Card 2: Manual Graphics -->
                 <div class="sample-card">
                     <div>
-                        <span class="sample-badge">Manually Crafted</span>
-                        <h3>Brand & Apparel Graphics</h3>
+                        <span class="sample-badge">Handcrafted Graphics</span>
+                        <h3>Branding & Apparel Design</h3>
                         <ul>
                             <li>Minimalist typography & logotypes</li>
                             <li>Custom sans-serif apparel branding</li>
-                            <li>Cohesive social media carousel layouts</li>
+                            <li>Cohesive social carousel graphics</li>
                             <li>Vector apparel & graphic overlays</li>
                         </ul>
                     </div>
-                    <div class="sample-footer">Tools: Photoshop / Illustrator / Canva Pro</div>
+                    <div class="sample-tools">Tools: Photoshop / Illustrator / Canva Pro</div>
                 </div>
 
                 <!-- Card 3: Video & Reels -->
                 <div class="sample-card">
                     <div>
-                        <span class="sample-badge">Motion & Reels</span>
-                        <h3>Short-Form Video Direction</h3>
+                        <span class="sample-badge">Motion & Video</span>
+                        <h3>Short-Form Reels Direction</h3>
                         <ul>
-                            <li>Dynamic transitions & rhythmic cuts</li>
+                            <li>Dynamic cuts & rhythmic transitions</li>
                             <li>Aesthetic product feature highlights</li>
                             <li>On-trend audio & text overlay sync</li>
-                            <li>High-converting social video ads</li>
+                            <li>High-converting video ad edits</li>
                         </ul>
                     </div>
-                    <div class="sample-footer">Tools: CapCut Pro / Premiere / Meta Suite</div>
+                    <div class="sample-tools">Tools: CapCut Pro / Premiere / Meta Suite</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 6: TECH STACK TAG CLOUD -->
+    <!-- SLIDE 6: TOOLKIT -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
             <span class="slide-number">06 / 07</span>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
-            <h2 class="section-title">TOOLKIT & CREATIVE SKILLS</h2>
-            <p class="subtitle">Equipped with design, editing, and planning platforms for flawless execution.</p>
-            <div class="stack-container">
-                <div class="tag-pill"><span class="tag-dot"></span>Canva Pro</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Adobe Photoshop</div>
-                <div class="tag-pill"><span class="tag-dot"></span>CapCut / Video Editing</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Meta Business Suite</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Notion & Content Hubs</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Grid Planning & Aesthetics</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Brand Identity Design</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Copywriting & Storytelling</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Analytics & Insights</div>
+            <h2 class="section-title">CREATIVE TOOLKIT</h2>
+            <p class="subtitle">Mastery over premier editing, AI design, and visual suite platforms.</p>
+            <div class="tag-cloud">
+                <div class="tag-item"><span class="tag-dot"></span>Midjourney & AI Image Generators</div>
+                <div class="tag-item"><span class="tag-dot"></span>Adobe Photoshop</div>
+                <div class="tag-item"><span class="tag-dot"></span>CapCut Pro & Premiere</div>
+                <div class="tag-item"><span class="tag-dot"></span>Canva Pro</div>
+                <div class="tag-item"><span class="tag-dot"></span>Meta Business Suite</div>
+                <div class="tag-item"><span class="tag-dot"></span>Grid Curation & Aesthetics</div>
+                <div class="tag-item"><span class="tag-dot"></span>Typography & Logo Design</div>
+                <div class="tag-item"><span class="tag-dot"></span>Copywriting & Narrative</div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 7: PROCESS & CONTACT CTA -->
+    <!-- SLIDE 7: PROCESS & CTA -->
     <div class="slide">
         <div class="slide-header">
             <span class="brand-name"><span class="brand-dot"></span>Juliet Binas</span>
@@ -854,29 +876,29 @@
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
             <div>
-                <h2 class="section-title">HOW WE WORK TOGETHER</h2>
-                <p class="subtitle">A seamless, collaborative experience to elevate your visual identity.</p>
-                <div class="process-row">
-                    <div class="process-step">
-                        <div class="step-num">01</div>
+                <h2 class="section-title">THE WORKFLOW</h2>
+                <p class="subtitle">An intentional, seamless approach to crafting your brand's digital presence.</p>
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="step-number">01.</div>
                         <div class="step-title">Discovery</div>
-                        <div class="step-desc">Audit your brand presence, define aesthetic goals, and chart the creative path forward.</div>
+                        <div class="step-desc">Aesthetic audit, brand story alignment, and visual trajectory mapping.</div>
                     </div>
-                    <div class="process-step">
-                        <div class="step-num">02</div>
-                        <div class="step-title">Design</div>
-                        <div class="step-desc">Craft custom templates, curate content themes, and set up your visual feed.</div>
+                    <div class="process-card">
+                        <div class="step-number">02.</div>
+                        <div class="step-title">Creation</div>
+                        <div class="step-desc">Crafting AI imagery, vector graphics, and rhythmic video motion.</div>
                     </div>
-                    <div class="process-step">
-                        <div class="step-num">03</div>
-                        <div class="step-title">Growth</div>
-                        <div class="step-desc">Monitor reach, refine creative direction, and continuously amplify brand authority.</div>
+                    <div class="process-card">
+                        <div class="step-number">03.</div>
+                        <div class="step-title">Elevation</div>
+                        <div class="step-desc">Deploying curated feed visuals and scaling audience engagement.</div>
                     </div>
                 </div>
             </div>
-            <div class="contact-bar">
-                <span>Ready to elevate your brand's presence?</span>
-                <a href="mailto:juliet.binas.pandroutsourcing@gmail.com" class="btn-pill" style="padding: 8px 16px; font-size: 0.75rem;">Get In Touch</a>
+            <div class="cta-bar">
+                <span>Ready to transform your visual identity?</span>
+                <a href="mailto:juliet.binas.pandroutsourcing@gmail.com" class="btn-pill" style="padding: 10px 22px; font-size: 0.7rem;">Book Consultation</a>
             </div>
         </div>
     </div>
