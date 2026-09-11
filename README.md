@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juliet Binas | Visual Portfolio Presentation</title>
     <style>
-        /* CSS Reset & Dark Mode Base Styles */
+        /* CSS Reset & Dark Feminine Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,20 +14,23 @@
         }
 
         :root {
-            --bg-color: #050505;
-            --card-bg: #0d0d0d;
-            --card-surface: #141414;
-            --border-color: #262626;
-            --accent-color: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-            --text-primary: #ffffff;
-            --text-secondary: #a3a3a3;
-            --text-muted: #525252;
+            --bg-color: #0f0d13;
+            --card-bg: #18131d;
+            --card-surface: #231b2b;
+            --border-color: #3b2c45;
+            --border-hover: #5a3d69;
+            --accent-color: #ec4899;
+            --accent-gradient: linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #d946ef 100%);
+            --accent-glow: rgba(236, 72, 153, 0.2);
+            --accent-gold: #f59e0b;
+            --text-primary: #fdf2f8;
+            --text-secondary: #d1c1d7;
+            --text-muted: #8c7895;
         }
 
         body {
             background-color: var(--bg-color);
-            color: #f2f2f2;
+            color: var(--text-primary);
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
@@ -42,30 +45,31 @@
             aspect-ratio: 16 / 9;
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 40px 48px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             overflow: hidden;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .slide:hover {
-            border-color: #404040;
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.15);
         }
 
-        /* Ambient Light Graphic Accent */
+        /* Ambient Rose Gold Soft Lighting */
         .slide::before {
             content: '';
             position: absolute;
             top: -100px;
             right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(15, 13, 19, 0) 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -80,7 +84,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 16px;
         }
 
@@ -98,9 +102,9 @@
         .brand-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--accent-color);
+            background: var(--accent-gradient);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
         }
 
         .slide-number {
@@ -115,8 +119,7 @@
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.5px;
-            color: var(--text-primary);
-            background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fbcfe8 50%, #f472b6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -139,8 +142,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--text-primary);
-            color: #000000;
+            background: var(--accent-gradient);
+            color: #ffffff;
             padding: 10px 24px;
             font-size: 0.85rem;
             font-weight: 700;
@@ -150,11 +153,12 @@
             text-decoration: none;
             width: fit-content;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
         }
 
         .btn-pill:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
         }
 
         /* Slide 1: Cover Layout */
@@ -176,7 +180,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
             position: relative;
         }
 
@@ -199,7 +203,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background-color: #333;
+            background-color: var(--border-color);
         }
 
         .mockup-grid {
@@ -210,26 +214,29 @@
         }
 
         .mockup-item {
-            background-color: #1a1a1a;
-            border-radius: 6px;
-            border: 1px solid #262626;
+            background-color: #120e17;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
             overflow: hidden;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .mockup-item:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
             border-color: var(--accent-color);
+            background-color: #2a1f33;
         }
 
         .mockup-item svg {
             width: 24px;
             height: 24px;
-            fill: #404040;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 1.5;
         }
 
         /* Slide 2: Split Columns */
@@ -244,9 +251,9 @@
         .portrait-frame {
             width: 100%;
             height: 240px;
-            background: linear-gradient(135deg, #171717 0%, #0d0d0d 100%);
+            background: linear-gradient(135deg, #2a1f33 0%, #120e17 100%);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -261,11 +268,12 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-color: #262626;
+            background-color: #18131d;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #404040;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
         }
 
         .stats-grid {
@@ -278,20 +286,20 @@
         .stat-card {
             background-color: var(--card-surface);
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid var(--border-color);
             text-align: center;
         }
 
         .stat-card h4 {
             font-size: 1.1rem;
-            color: var(--text-primary);
+            color: var(--accent-color);
             font-weight: 700;
         }
 
         .stat-card p {
             font-size: 0.72rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             margin-top: 2px;
         }
 
@@ -307,7 +315,7 @@
         .service-card {
             background-color: var(--card-surface);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 20px;
             height: 100%;
             display: flex;
@@ -317,8 +325,9 @@
         }
 
         .service-card:hover {
-            border-color: #404040;
+            border-color: var(--accent-color);
             transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
 
         .service-icon {
@@ -326,7 +335,7 @@
             height: 32px;
             margin-bottom: 12px;
             stroke: var(--accent-color);
-            stroke-width: 2;
+            stroke-width: 1.8;
             fill: none;
         }
 
@@ -346,8 +355,9 @@
         }
 
         .service-card ul li::before {
-            content: "• ";
+            content: "✦ ";
             color: var(--accent-color);
+            font-size: 0.7rem;
         }
 
         .service-impact {
@@ -355,7 +365,7 @@
             padding-top: 12px;
             border-top: 1px solid var(--border-color);
             font-size: 0.75rem;
-            color: var(--text-primary);
+            color: var(--accent-color);
             font-weight: 600;
         }
 
@@ -371,7 +381,7 @@
         .case-visual {
             background-color: var(--card-surface);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 14px;
             height: 240px;
             padding: 20px;
             display: flex;
@@ -394,19 +404,19 @@
             background-color: var(--card-surface);
             border-left: 3px solid var(--accent-color);
             padding: 10px 14px;
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 10px 10px 0;
         }
 
         .detail-box h5 {
             font-size: 0.7rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .detail-box p {
             font-size: 0.82rem;
-            color: #d4d4d4;
+            color: var(--text-primary);
             margin-top: 2px;
         }
 
@@ -424,7 +434,7 @@
             padding: 10px 18px;
             border-radius: 30px;
             font-size: 0.82rem;
-            color: #e5e5e5;
+            color: var(--text-primary);
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -435,7 +445,8 @@
         .tag-pill:hover {
             border-color: var(--accent-color);
             color: #ffffff;
-            background-color: #1a1a1a;
+            background-color: #32233d;
+            transform: translateY(-2px);
         }
 
         .tag-dot {
@@ -456,7 +467,7 @@
         .process-step {
             background-color: var(--card-surface);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 16px;
             position: relative;
         }
@@ -476,7 +487,7 @@
 
         .step-desc {
             font-size: 0.73rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             margin-top: 4px;
             line-height: 1.4;
         }
@@ -487,7 +498,7 @@
             align-items: center;
             background-color: var(--card-surface);
             padding: 14px 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
             font-size: 0.82rem;
             color: var(--text-secondary);
@@ -521,8 +532,8 @@
         </div>
         <div class="cover-content">
             <div>
-                <h1 class="hero-title">TURNING DIGITAL NOISE INTO BRAND AUTHORITY.</h1>
-                <p class="subtitle" style="margin-top: 12px; margin-bottom: 24px;">Social Media Management & Brand Strategy</p>
+                <h1 class="hero-title">ELEVATING BRANDS THROUGH CURATED VISUAL STORYTELLING.</h1>
+                <p class="subtitle" style="margin-top: 12px; margin-bottom: 24px;">Social Media Direction & Visual Strategy</p>
                 <a href="mailto:juliet.binas.pandroutsourcing@gmail.com" class="btn-pill">
                     Book Discovery Call
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -530,7 +541,7 @@
             </div>
             <div class="device-mockup">
                 <div class="mockup-header">
-                    <span>Live Content Grid</span>
+                    <span>Curated Feed</span>
                     <div class="status-dots">
                         <div class="status-dot"></div>
                         <div class="status-dot"></div>
@@ -570,25 +581,25 @@
         <div class="split-layout">
             <div class="portrait-frame">
                 <div class="portrait-avatar">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </div>
-                <span style="font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;">Visual Strategist</span>
+                <span style="font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary);">Visual Strategist</span>
             </div>
             <div>
                 <h2 class="section-title">THE APPROACH</h2>
-                <p class="subtitle">I combine visual storytelling, aesthetic content creation, and tailored positioning strategy to help brands build a distinctive presence and cultivate lasting audience authority.</p>
+                <p class="subtitle">I blend aesthetic design, elevated content curation, and intentional brand strategy to craft memorable visual identities that cultivate deeply engaged audiences.</p>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h4>100%</h4>
-                        <p>Custom Content</p>
+                        <p>Bespoke Creative</p>
                     </div>
                     <div class="stat-card">
-                        <h4>Tailored</h4>
-                        <p>Visual Style</p>
+                        <h4>Elevated</h4>
+                        <p>Aesthetic Focus</p>
                     </div>
                     <div class="stat-card">
                         <h4>Strategic</h4>
-                        <p>Growth Focus</p>
+                        <p>Brand Growth</p>
                     </div>
                 </div>
             </div>
@@ -605,38 +616,38 @@
             <div class="service-card">
                 <div>
                     <svg class="service-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    <h3>Visual Branding</h3>
+                    <h3>Visual Identity</h3>
                     <ul>
-                        <li>Feed aesthetic design</li>
-                        <li>Custom graphic templates</li>
-                        <li>Brand color direction</li>
+                        <li>Feed aesthetic curation</li>
+                        <li>Bespoke graphic templates</li>
+                        <li>Color & typography direction</li>
                     </ul>
                 </div>
-                <div class="service-impact">Elevates Visual Identity</div>
+                <div class="service-impact">Refines Brand Presence</div>
             </div>
             <div class="service-card">
                 <div>
                     <svg class="service-icon" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-                    <h3>Content Strategy</h3>
+                    <h3>Content Curation</h3>
                     <ul>
-                        <li>Short-form video concepts</li>
+                        <li>Reels & video direction</li>
                         <li>Editorial content planning</li>
-                        <li>Copywriting & captions</li>
+                        <li>Engaging story copy</li>
                     </ul>
                 </div>
-                <div class="service-impact">Drives Audience Engagement</div>
+                <div class="service-impact">Inspires Engagement</div>
             </div>
             <div class="service-card">
                 <div>
                     <svg class="service-icon" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-                    <h3>Growth Management</h3>
+                    <h3>Growth & Reach</h3>
                     <ul>
-                        <li>Platform optimization</li>
-                        <li>Analytics & reporting</li>
-                        <li>Community interaction</li>
+                        <li>Profile optimization</li>
+                        <li>Analytics & performance</li>
+                        <li>Community nurture</li>
                     </ul>
                 </div>
-                <div class="service-impact">Sustains Long-Term Authority</div>
+                <div class="service-impact">Sustains Long-Term Value</div>
             </div>
         </div>
     </div>
@@ -649,36 +660,36 @@
         </div>
         <div class="case-study-layout">
             <div class="case-visual">
-                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Performance Growth Trend</span>
+                <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Engagement & Reach Growth</span>
                 <svg class="chart-graphic" viewBox="0 0 300 120" preserveAspectRatio="none">
                     <defs>
                         <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4"/>
-                            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0"/>
+                            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.4"/>
+                            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.0"/>
                         </linearGradient>
                     </defs>
                     <path d="M0,100 Q60,80 120,60 T240,20 T300,10 L300,120 L0,120 Z" fill="url(#chartGrad)"/>
-                    <path d="M0,100 Q60,80 120,60 T240,20 T300,10" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                    <path d="M0,100 Q60,80 120,60 T240,20 T300,10" fill="none" stroke="#ec4899" stroke-width="3"/>
                 </svg>
                 <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted);">
-                    <span>Phase 1: Audit</span>
-                    <span>Phase 2: Redesign</span>
-                    <span>Phase 3: Growth</span>
+                    <span>Phase 1: Brand Audit</span>
+                    <span>Phase 2: Visual Refresh</span>
+                    <span>Phase 3: Scale & Reach</span>
                 </div>
             </div>
             <div class="case-details">
                 <h2 class="section-title">CAMPAIGN HIGHLIGHTS</h2>
                 <div class="detail-box">
                     <h5>The Challenge</h5>
-                    <p>Inconsistent brand aesthetic and low engagement across primary social channels.</p>
+                    <p>Inconsistent grid aesthetic and low engagement across primary visual platforms.</p>
                 </div>
                 <div class="detail-box">
                     <h5>The Strategy</h5>
-                    <p>Cohesive visual overhaul, high-value educational carousels, and strategic posting schedules.</p>
+                    <p>Cohesive aesthetic makeover, editorial short-form video, and tailored visual narrative.</p>
                 </div>
                 <div class="detail-box">
                     <h5>The Outcome</h5>
-                    <p>Enhanced audience retention, unified brand presentation, and increased direct inquiries.</p>
+                    <p>Elevated brand perception, stronger community trust, and increased client inquiries.</p>
                 </div>
             </div>
         </div>
@@ -691,17 +702,17 @@
             <span class="slide-number">05 / 06</span>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
-            <h2 class="section-title">TOOLKIT & CORE SKILLS</h2>
-            <p class="subtitle">Equipped with industry-standard platforms for design, organization, and analytical tracking.</p>
+            <h2 class="section-title">TOOLKIT & CREATIVE SKILLS</h2>
+            <p class="subtitle">Equipped with design, editing, and planning platforms for flawless execution.</p>
             <div class="stack-container">
                 <div class="tag-pill"><span class="tag-dot"></span>Canva Pro</div>
                 <div class="tag-pill"><span class="tag-dot"></span>Adobe Photoshop</div>
-                <div class="tag-pill"><span class="tag-dot"></span>CapCut / Premiere</div>
+                <div class="tag-pill"><span class="tag-dot"></span>CapCut / Video Editing</div>
                 <div class="tag-pill"><span class="tag-dot"></span>Meta Business Suite</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Notion & Planning Tools</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Content Scheduling</div>
+                <div class="tag-pill"><span class="tag-dot"></span>Notion & Content Hubs</div>
+                <div class="tag-pill"><span class="tag-dot"></span>Grid Planning & Aesthetics</div>
                 <div class="tag-pill"><span class="tag-dot"></span>Brand Identity Design</div>
-                <div class="tag-pill"><span class="tag-dot"></span>Copywriting</div>
+                <div class="tag-pill"><span class="tag-dot"></span>Copywriting & Storytelling</div>
                 <div class="tag-pill"><span class="tag-dot"></span>Analytics & Insights</div>
             </div>
         </div>
@@ -716,27 +727,27 @@
         <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
             <div>
                 <h2 class="section-title">HOW WE WORK TOGETHER</h2>
-                <p class="subtitle">A simple, transparent process to elevate your brand presence.</p>
+                <p class="subtitle">A seamless, collaborative experience to elevate your visual identity.</p>
                 <div class="process-row">
                     <div class="process-step">
                         <div class="step-num">01</div>
                         <div class="step-title">Discovery</div>
-                        <div class="step-desc">Audit your brand presence, align on goals, and outline the core creative direction.</div>
+                        <div class="step-desc">Audit your brand presence, define aesthetic goals, and chart the creative path forward.</div>
                     </div>
                     <div class="process-step">
                         <div class="step-num">02</div>
-                        <div class="step-title">Execution</div>
-                        <div class="step-desc">Design custom templates, draft high-impact copy, and structure your content pipeline.</div>
+                        <div class="step-title">Design</div>
+                        <div class="step-desc">Craft custom templates, curate content themes, and set up your visual feed.</div>
                     </div>
                     <div class="process-step">
                         <div class="step-num">03</div>
-                        <div class="step-title">Optimization</div>
-                        <div class="step-desc">Monitor performance metrics, refine strategies, and consistently scale reach.</div>
+                        <div class="step-title">Growth</div>
+                        <div class="step-desc">Monitor reach, refine creative direction, and continuously amplify brand authority.</div>
                     </div>
                 </div>
             </div>
             <div class="contact-bar">
-                <span>Ready to transform your digital presence?</span>
+                <span>Ready to elevate your brand's presence?</span>
                 <a href="mailto:juliet.binas.pandroutsourcing@gmail.com" class="btn-pill" style="padding: 8px 16px; font-size: 0.75rem;">Get In Touch</a>
             </div>
         </div>
